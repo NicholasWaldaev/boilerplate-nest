@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PermissionService } from '@internal/permission/permission.service';
+import { PermissionForRolesService } from '@/internal/permission/services/permissionForRoles.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Permission } from '@internal/permission/permission.entity';
 import { mockPermissionsRepository } from '@internal/permission/tests/mock/permissionRepository.mock';
 import { mockPermissions } from '@internal/permission/tests/mock/permissions.mock';
 
 describe('PermissionService', () => {
-  let permissionsService: PermissionService;
+  let permissionsService: PermissionForRolesService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        PermissionService,
+        PermissionForRolesService,
         {
           provide: getRepositoryToken(Permission),
           useValue: mockPermissionsRepository,
@@ -19,7 +19,9 @@ describe('PermissionService', () => {
       ],
     }).compile();
 
-    permissionsService = module.get<PermissionService>(PermissionService);
+    permissionsService = module.get<PermissionForRolesService>(
+      PermissionForRolesService,
+    );
   });
 
   it('should be defined', () => {

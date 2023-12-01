@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { RoleService } from '@modules/role/role.service';
-import { PermissionService } from '@internal/permission/permission.service';
+import { PermissionForSeedService } from '@/internal/permission/services/permissionForSeed.service';
 import { UserService } from '@modules/user/user.service';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class SeederService {
   constructor(
     private readonly logger: Logger,
     private readonly roleService: RoleService,
-    private readonly permissionService: PermissionService,
+    private readonly permissionService: PermissionForSeedService,
     private readonly userService: UserService,
   ) {}
 

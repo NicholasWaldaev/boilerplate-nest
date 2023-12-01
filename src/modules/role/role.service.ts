@@ -7,7 +7,7 @@ import { Repository } from 'typeorm';
 import { PageOptionsDto } from '@/internal/pagination/dto/page-options.dto';
 import { PageDto } from '@/internal/pagination/dto/page.dto';
 import { PaginationService } from '@/internal/pagination/pagination.service';
-import { PermissionService } from '@internal/permission/permission.service';
+import { PermissionForRolesService } from '@/internal/permission/services/permissionForRoles.service';
 import { RolesEnum } from '@modules/role/enums/roles.enum';
 import RoleNotFoundException from '@/modules/role/exception/roleNotFound';
 import { Role } from '@modules/role/role.entity';
@@ -18,7 +18,7 @@ export class RoleService {
   constructor(
     @InjectRepository(Role)
     private readonly roleRepository: Repository<Role>,
-    private readonly permissionService: PermissionService,
+    private readonly permissionService: PermissionForRolesService,
     private readonly paginationService: PaginationService,
   ) {}
 

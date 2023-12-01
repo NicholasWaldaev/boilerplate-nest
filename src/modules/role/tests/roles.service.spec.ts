@@ -4,7 +4,7 @@ import { DeleteResult } from 'typeorm';
 import { Permission } from '@internal/permission/permission.entity';
 import { Role } from '@modules/role/role.entity';
 import { RolesEnum } from '@modules/role/enums/roles.enum';
-import { PermissionService } from '@internal/permission/permission.service';
+import { PermissionService } from '@/internal/permission/services/permissionForRoles.service';
 import { RoleService } from '@modules/role/role.service';
 import { mockPermissionsRepository } from '@internal/permission/tests/mock/permissionRepository.mock';
 import { createRoleDto } from '@modules/role/tests/mock/createRole.dto.mock';
